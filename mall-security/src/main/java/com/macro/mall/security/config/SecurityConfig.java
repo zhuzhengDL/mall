@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 自定义权限拦截器JWT过滤器
                 .and()
                 .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        //有动态权限配置时添加动态权限校验过滤器
+        //有动态权限配置时添加动态权限校验过滤器--管理后台配置下 dynamicSecurityService !=null
         if(dynamicSecurityService!=null){
             registry.and().addFilterBefore(dynamicSecurityFilter(), FilterSecurityInterceptor.class);
         }
